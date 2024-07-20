@@ -5,8 +5,8 @@
 class Effet
 {
 public:
-    virtual ~Effet(){};
-    virtual void appliquerEffet() = 0;
+    virtual ~Effet() = default;
+    virtual void appliquerEffet() = 0; // Méthode virtuelle pure
 };
 
 #endif

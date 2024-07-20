@@ -3,5 +3,19 @@
 #include "card.hpp"
 #include <iostream>
 
-Spell::Spell(Effet* effet) 
-: Card(int id, std::string name, int mana, std::string cardText, std::string type, std::string cardClass, bool in_hand, bool in_deck, bool on_board, std::string rarity), effet_(effet) {};
+Spell::Spell(int id, const std::string &name, int mana, const std::string& cardText, const std::string &type,
+          const std::string &cardClass, bool in_hand, bool in_deck, bool on_board, const std::string &rarity, Effet* effet) :
+Card(id,  name, mana, cardText,  type,  cardClass,  in_hand,  in_deck,on_board, rarity), effet_(effet) {};
+
+Spell::~Spell()
+{
+    delete effet_;
+}
+
+void Spell::activerEffet()
+{
+    if(effet_)
+    {
+        effet_->appliquerEffet(); // Appel de l'effet associé
+    }
+}

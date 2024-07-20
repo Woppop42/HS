@@ -9,15 +9,15 @@ Card::Card(int id, std::string name, int mana, std::string cardText, std::string
 
 Card::~Card(){};
 
-int Card::getId()
+int Card::getId() const
 {
     return this->id;
 }
-std::string Card::getName()
+std::string Card::getName() const
 {
     return this->name;
 }
-int Card::getMana()
+int Card::getMana() const
 {
     return this->mana;
 }
@@ -25,19 +25,19 @@ int Card::setMana(int i)
 {
     return this->mana = i;
 }
-std::string Card::getCardText()
+std::string Card::getCardText() const
 {
     return this->cardText;
 }
-std::string Card::getType()
+std::string Card::getType() const
 {
     return this->type;
 }
-std::string Card::getCardClass()
+std::string Card::getCardClass() const
 {
     return this->cardClass;
 }
-bool Card::getInHand()
+bool Card::getInHand() const
 {
     return this->getInHand();
 }
@@ -45,7 +45,7 @@ bool Card::setInHand(bool b)
 {
     return this->in_hand = b;
 }
-bool Card::getInDeck()
+bool Card::getInDeck() const
 {
     return this->in_deck;
 }
@@ -53,7 +53,7 @@ bool Card::setInDeck(bool b)
 {
     return this->in_deck = b;
 }
-bool Card::getOnBoard()
+bool Card::getOnBoard() const
 {
     return this->on_board;
 }
@@ -61,7 +61,7 @@ bool Card::setOnBoard(bool b)
 {
     return this->on_board = b;
 }
-std::string Card::getRarity()
+std::string Card::getRarity() const
 {
     return this->rarity;
 }
