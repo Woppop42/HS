@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-Card::Card(int id, std::string name, int mana, std::string cardText, std::string type, std::string cardClass, bool in_hand, bool in_deck, bool on_board, std::string rarity) : id(id), name(name), mana(mana), cardText(cardText), type(type), cardClass(cardClass), in_hand(in_hand), in_deck(in_deck), on_board(on_board)
+Card::Card(int id, std::string name, int mana, std::string cardText, std::string type, std::string cardClass, bool in_hand, bool in_deck, bool on_board, std::string rarity, int atk, int vie) : id(id), name(name), mana(mana), cardText(cardText), type(type), cardClass(cardClass), in_hand(in_hand), in_deck(in_deck), on_board(on_board), atk(atk),vie(vie)
 {
 
 };
@@ -64,4 +64,12 @@ bool Card::setOnBoard(bool b)
 std::string Card::getRarity() const
 {
     return this->rarity;
+}
+int Card::getVie() const 
+{
+    return this->vie;
+}
+int Card::setVie(int i)
+{
+    return this->vie = i;
 }

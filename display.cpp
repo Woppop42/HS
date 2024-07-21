@@ -2,6 +2,7 @@
 #include "monster.hpp"
 #include "spell.hpp"
 #include "card.hpp"
+#include "hero.hpp"
 
 void Display::getMonsterInfos(const Monster& monster)
 {
@@ -17,4 +18,10 @@ void Display::getMonsterInfos(const Monster& monster)
     
 
 
+}
+void Display::getHeroInfos(const Hero& hero)
+{
+    std::cout << "ID : " << hero.getId() << "\n" << std::endl;
+    std::cout << "Nom : " << hero.getName() <<"\n" << std::endl;
+    std::cout << "Vie" << hero.getVie() <<"\n" << std::endl;
 }

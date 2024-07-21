@@ -9,10 +9,11 @@
     class Card
     {
         public:
-            Card(int id, std::string name, int mana, std::string cardText, std::string type, std::string cardClass, bool in_hand, bool in_deck, bool on_board, std::string rarity);
+            Card(int id, std::string name, int mana, std::string cardText, std::string type, std::string cardClass, bool in_hand, bool in_deck, bool on_board, std::string rarity, int atk, int vie);
             int getId() const;
             virtual ~Card();
             virtual void activerEffet() = 0; // Méthode virtuelle pure, rendant la classe abstraite.
+            virtual void activerAttaque(Card& defenseur) = 0;
             std::string getName() const;
             std::string setName(std::string n);
             int getMana() const;
@@ -26,6 +27,10 @@
             bool getInHand() const;
             bool getOnBoard() const;
             bool setOnBoard(bool b);
+            int getVie() const;
+            int getAtk() const;
+            int setVie(int i);
+            int setAtk(int i);
             std::string getRarity() const;
             
             
@@ -42,6 +47,8 @@
             bool in_deck;
             bool on_board;
             std::string rarity;
+            int vie;
+            int atk;
 
     };
 
