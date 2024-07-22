@@ -15,7 +15,7 @@
             virtual void activerEffet() = 0; // Méthode virtuelle pure, rendant la classe abstraite.
             virtual void activerAttaque(Card& defenseur) = 0;
             std::string getName() const;
-            std::string setName(std::string n);
+            // std::string setName(std::string n);
             int getMana() const;
             int setMana(int i);
             std::string getCardText() const;

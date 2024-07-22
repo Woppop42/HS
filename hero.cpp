@@ -1,12 +1,14 @@
 #include "hero.hpp"
 #include "card.hpp"
-#include "effet.hpp"
-#include "effetAttaque.cpp"
+#include "effetAttaque.hpp"
+#include "effetConcret.hpp"
 #include <iostream>
 #include <algorithm>
 #include <memory>
 
-Hero::Hero(int id, const std::string& name, int mana, const std::string& cardText, const std::string& type, const std::string& cardClass, bool in_hand, bool in_deck, bool on_board, const std::string& rarity, int minPdv, int maxPdv, int currentPdv, const std::string& heroClass, int minMana, int maxMana, int currentMana, int atk, int armor,std::unique_ptr<Effet> effet, std::unique_ptr<EffetAttaque> hp) : Card(id, name, mana, cardText, type, cardClass, in_hand, in_deck, on_board, rarity, atk, currentPdv), minPdv_(minPdv), maxPdv_(maxPdv), currentPdv_(currentPdv), heroClass_(heroClass), minMana_(minMana), maxMana_(maxMana), currentMana_(currentMana), armor_(armor), effet_(std::move(effet)), hp_(std::move(hp)) {}
+Hero::Hero(int id, const std::string& name, int mana, const std::string& cardText, const std::string& type, const std::string& cardClass, bool in_hand, bool in_deck, bool on_board, const std::string& rarity, int minPdv, int maxPdv, int currentPdv, const std::string& heroClass, int minMana, int maxMana, int currentMana, int atk, int armor,std::unique_ptr<EffetConcret> effet, std::unique_ptr<EffetAttaque> effetAtk): Card(id, name, mana, cardText, type, cardClass, in_hand, in_deck, on_board, rarity, atk, currentPdv), minPdv_(minPdv), maxPdv_(maxPdv), currentPdv_(currentPdv), heroClass_(heroClass), minMana_(minMana), maxMana_(maxMana), currentMana_(currentMana), armor_(armor), effet_(std::move(effet)), effetAtk_(std::move(effetAtk))
+{
+}
 
 Hero::~Hero() = default;
 
@@ -19,9 +21,9 @@ void Hero::activerEffet()
 }
 void Hero::activerAttaque(Card& defenseur)
 {
-    if(hp_)
+    if(effetAtk_)
     {
-        hp_->attaquer(*this, defenseur);
+        effetAtk_->attaquer(*this, defenseur);
     }
 }
 
@@ -30,11 +32,11 @@ void Hero::activerAttaque(Card& defenseur)
 
 int Hero::getId() const
 {
-    return this->id;
+    return Card::getId();
 }
 std::string Hero::getName() const 
 {
-    return this->name;
+    return Card::getName();
 }
 int Hero::getMinPdv() const
 {
@@ -74,11 +76,11 @@ int Hero::setMaxMana(int i)
 }
 int Hero::getAtk() const 
 {
-    return this->atk_;
+    return Card::getAtk();
 }
-int Hero::setAtk(int i)
+void Hero::setAtk(int i)
 {
-    return this->atk_ = i;
+    Card::setAtk(i);
 }
 int Hero::getArmor() const 
 {
@@ -87,4 +89,12 @@ int Hero::getArmor() const
 int Hero::setArmor(int i)
 {
     return this->armor_ = i;
+}
+int Hero::getCurrentMana() const
+{
+    return this->currentMana_;
+}
+int Hero::setCurrentMana(int i)
+{
+    return this->currentMana_ = i;
 }

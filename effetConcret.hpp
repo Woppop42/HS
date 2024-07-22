@@ -1,14 +1,13 @@
 #ifndef __EFFET_CONCRET__
 #define __EFFET_CONCRET__
-#include "effet.hpp"
 #include "card.hpp"
 #include <iostream>
 
 
-class EffetConcret : public Effet
+class EffetConcret 
 {
     public:
-        void appliquerEffet() override;
+        void appliquerEffet();
 };
 
 #endif

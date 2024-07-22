@@ -23,5 +23,5 @@ void Display::getHeroInfos(const Hero& hero)
 {
     std::cout << "ID : " << hero.getId() << "\n" << std::endl;
     std::cout << "Nom : " << hero.getName() <<"\n" << std::endl;
-    std::cout << "Vie" << hero.getVie() <<"\n" << std::endl;
+    std::cout << "Vie : " << hero.getCurrentPdv() <<"\n" << std::endl;
 }

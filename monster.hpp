@@ -1,14 +1,14 @@
 #ifndef __MONSTER__
 #define __MONSTER__
 #include "card.hpp"
-#include "effet.hpp"
+#include "effetAttaque.hpp"
 #include <memory>
 
 class Monster : public Card
 {
     public:
         Monster(int id, const std::string &name, int mana, const std::string &cardText, const std::string &type,
-            const std::string &cardClass, bool in_hand, bool in_deck, bool on_board, const std::string &rarity, std::unique_ptr<Effet> effet, int atk, int vie);
+            const std::string &cardClass, bool in_hand, bool in_deck, bool on_board, const std::string &rarity, std::unique_ptr<EffetAttaque> effetAtk, int atk, int vie);
         ~Monster();
         void activerEffet() override;
         void activerAttaque(Card& defenseur) override;
@@ -24,7 +24,7 @@ class Monster : public Card
     private:
         int atk;
         int vie;
-        std::unique_ptr<Effet> effet_;
+        std::unique_ptr<EffetAttaque> effetAtk_;
 };
 
 #endif

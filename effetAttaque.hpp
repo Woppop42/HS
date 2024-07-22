@@ -1,16 +1,20 @@
-#include "effet.hpp"
-#include "monster.hpp"
+#ifndef __EFFET_ATTAQUE__
+#define __EFFET_ATTAQUE__
 #include "card.hpp"
-#include "spell.hpp"
-#include "hero.hpp"
 #include <algorithm>
 #include <iostream>
 
-class EffetAttaque : public Effet 
+class Card;
+
+class EffetAttaque 
 {
     public:
-        void appliquerEffet() override;
-        void attaquer(Card& attaquant, Card& defenseur) override;
+        EffetAttaque() = default;
+        virtual ~EffetAttaque() = default;
+        void appliquerEffet();
+        void attaquer(Card& attaquant, Card& defenseur);
 
 
 };
+
+#endif

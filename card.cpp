@@ -73,3 +73,11 @@ int Card::setVie(int i)
 {
     return this->vie = i;
 }
+int Card::getAtk() const
+{
+    return this->atk;
+}
+int Card::setAtk(int i) 
+{
+    return this->atk = i;
+}
